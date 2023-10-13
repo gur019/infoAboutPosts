@@ -31,15 +31,16 @@ const App = () => {
     };
   
     const columnDefs = [
-      { headerName: 'ID', field: 'id' },
-      { headerName: 'Title', field: 'title' },
-      { headerName: 'Body', field: 'body' },
+      { headerName: 'ID', field: 'id', resizable: true },
+      { headerName: 'Title', field: 'title', resizable: true },
+      { headerName: 'Body', field: 'body', resizable: true },
       {
         headerName: 'Actions',
         field: 'id',
         cellRenderer: (params) => (
           <button onClick={() => handleDelete(params.value)}>Удалить</button>
         ),
+        resizable: true
       },
     ];
   
