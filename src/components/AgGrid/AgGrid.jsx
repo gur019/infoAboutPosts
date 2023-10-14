@@ -28,11 +28,15 @@ const AgGrid = () => {
         gridRef.current.api.sizeColumnsToFit();
     }, []);
 
-
-    const onGridReady = useCallback(() => {
+    const getPosts = () => {
         fetch('https://jsonplaceholder.typicode.com/posts?_limit=5')
             .then(response => response.json())
             .then(data => dispatch(appSetPosts(data)));
+    }
+
+
+    const onGridReady = useCallback(() => {
+        getPosts();
     }, []);
 
 
@@ -79,7 +83,7 @@ const AgGrid = () => {
             <h1>Список постов</h1>
 
             <ModalAddPost createNewPost={createNewPost} />
-            <ModalDeletePost post={post}/>
+            <ModalDeletePost post={post} />
 
             <div className="ag-theme-alpine" >
                 <AgGridReact

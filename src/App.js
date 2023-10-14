@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 
 import AgGrid from './components/AgGrid/AgGrid';
-import Link from './components/Link';
 
 const App = () => {
 
@@ -10,7 +9,6 @@ const App = () => {
 
         <div className='app'>
             <AgGrid/>
-            <Link page="http://www.facebook.com">sdfsdf</Link>
         </div>
 
     );
