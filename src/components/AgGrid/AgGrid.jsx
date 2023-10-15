@@ -11,6 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
 import ModalAddPost from '../modal/ModalAddPost';
 import ModalDeletePost from '../modal/ModalDeletePost';
+import { getPosts } from '../../api/api';
 
 const AgGrid = () => {
     const dispatch = useDispatch();
@@ -27,12 +28,6 @@ const AgGrid = () => {
     const onFirstDataRendered = useCallback(() => {
         gridRef.current.api.sizeColumnsToFit();
     }, []);
-
-    const getPosts = () => {
-        fetch('https://jsonplaceholder.typicode.com/posts?_limit=5')
-            .then(response => response.json())
-            .then(data => dispatch(appSetPosts(data)));
-    }
 
 
     const onGridReady = useCallback(() => {
